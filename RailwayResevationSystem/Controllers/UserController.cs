@@ -14,6 +14,10 @@ namespace RailwayResevationSystem.Controllers
     {
         // GET: User
         ReservationContext con = new ReservationContext();
+        public ActionResult UserPage()
+        {
+            return View();
+        }
         public ActionResult Index(User user)
         {
             return View(user);
@@ -89,9 +93,21 @@ namespace RailwayResevationSystem.Controllers
         public ActionResult Login(User user)
         {
             bool isuser = con.Users.Any(u => u.UserId == user.UserId && u.Password == user.Password);
+            var userDetails = con.Users.Where(u => u.UserId == user.UserId && u.Password == user.Password).FirstOrDefault();
+            /*if (userDetails == null)
+            {
+                ModelState.AddModelError("", "Not a user! Please click on NEW USER to register");
+                return RedirectToAction("Register", "User");
+            }
+            else
+            {
+                Session["Id"] = userDetails.Id;
+                return RedirectToAction("afterlogin", User);
+            }*/
             if (isuser)
             {
-                FormsAuthentication.SetAuthCookie("", true);
+                //FormsAuthentication.SetAuthCookie("", true);
+                Session["Id"] = userDetails.Id;
                 return RedirectToAction("afterlogin");
             }
             else
@@ -108,7 +124,7 @@ namespace RailwayResevationSystem.Controllers
                 return View();
             }
         }
-        [Authorize]
+        //[Authorize]
         public ActionResult afterlogin()
         {
             return View();

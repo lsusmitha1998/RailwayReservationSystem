@@ -29,7 +29,7 @@ namespace RailwayResevationSystem.Models
         [Required]
         public string SeatAvailability { get; set; }
         [Required]
-        public int NoOfSeat { get; set; } 
+        public int NoOfSeat { get; set; }        
 
     }
 }

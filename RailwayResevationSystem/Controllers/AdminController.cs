@@ -22,9 +22,11 @@ namespace RailwayResevationSystem.Controllers
         [HttpPost]
         public ActionResult Adminlogin(Admin adm)
         {
+            var adminDetails = con.Admins.Where(a => a.UserId == adm.UserId && a.password == adm.password).FirstOrDefault();
             bool isadmin = con.Admins.Any(a => a.UserId == adm.UserId && a.password == adm.password);
             if (isadmin)
             {
+                Session["adminId"] = adminDetails.id;
                 return RedirectToAction("afteradmin");
             }
             else
