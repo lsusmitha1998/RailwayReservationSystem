@@ -3,11 +3,33 @@
     ViewBag.Title = "Index";
 }
 
-<h1><b>Railway Reservation System</b></h1>
-<div>
-    @Html.ActionLink("User","UserPage","User")
-</div>
-<div>
-    @Html.ActionLink("Admin", "Adminlogin", "Admin")
-</div>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Railway Reservation System</h1>
+            <p>
+                Planning Your Journey!! Book your Tickets Here:)
+            </p>
+        </div>
 
+    </div>
+
+
+
+    <div class="container">
+        <div class="jumbotron">
+            <div class="col-sm-6">
+                <div class="col-md-12">
+                    @Html.ActionLink("User", "UserPage", "User")
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="col-md-12">
+                    @Html.ActionLink("Admin", "Adminlogin", "Admin")
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p>Happy Journey!!</p>
+    <p>Have a safe Trip</p>

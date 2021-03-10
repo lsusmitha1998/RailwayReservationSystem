@@ -1,0 +1,10 @@
+﻿@model RailwayResevationSystem.Models.Admin
+@{
+    ViewBag.Title = "AdminPage";
+}
+
+
+<h1>Hi Admin @Session["adminId"]</h1>
+@Html.ActionLink("Edit Train Details","Index","TrainAdmin")
+@Html.ActionLink("Edit Stop Points","Index","TrainSchedules")
+

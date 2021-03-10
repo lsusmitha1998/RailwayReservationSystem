@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -21,15 +20,17 @@ namespace RailwayResevationSystem.Models
         [Required]
         public string Destination { get; set; }
         [Required]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DateOfTravel { get; set; }
         [Required]
-        public string TrainType { get; set; }
+        public string TimeOfArrival { get; set; }
         [Required]
-        public string CoachClass { get; set; }
+        public string TrainType { get; set; }
+        
         [Required]
         public string SeatAvailability { get; set; }
         [Required]
-        public int NoOfSeat { get; set; }        
-
+        public int NoOfSeat { get; set; }
     }
 }

@@ -158,6 +158,16 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
+body {
+    /* The image used */
+    background-image: url("C:\AgileProject\Train");
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 input[type="search"] {
   -webkit-appearance: textfield;
   -webkit-box-sizing: content-box;
@@ -1403,6 +1413,7 @@ a.bg-warning:focus {
 .bg-danger {
   background-color: #f2dede;
 }
+
 a.bg-danger:hover,
 a.bg-danger:focus {
   background-color: #e4b9b9;

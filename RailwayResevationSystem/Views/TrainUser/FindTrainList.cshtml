@@ -1,0 +1,82 @@
+﻿@model IEnumerable<RailwayResevationSystem.Models.Train>
+
+@{ ViewBag.Title = "FindTrainList"; }
+
+<h2>FindTrainList</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TrainId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrainName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Source)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Destination)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfTravel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeOfArrival)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrainType)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.SeatAvailability)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoOfSeat)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.TrainId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TrainName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Source)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Destination)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateOfTravel)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TimeOfArrival)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TrainType)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.SeatAvailability)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NoOfSeat)
+    </td>
+    <td>
+        @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+        @Html.ActionLink("Train Schedule", "Trainschedule", "TrainUser", routeValues: new { id = item.TrainId }, htmlAttributes: null)
+    </td>
+</tr>}
+
+</table>

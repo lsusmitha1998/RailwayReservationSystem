@@ -1,0 +1,42 @@
+﻿@model RailwayResevationSystem.Models.TrainSchedule
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TrainSchedule</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TrainId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrainId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stop)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

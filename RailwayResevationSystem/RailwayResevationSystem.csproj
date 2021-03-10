@@ -127,6 +127,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\TrainAdminController.cs" />
+    <Compile Include="Controllers\TrainSchedulesController.cs" />
+    <Compile Include="Controllers\TrainUserController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WelcomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -136,11 +139,40 @@
     <Compile Include="Migrations\202103081505343_creatingDb.designer.cs">
       <DependentUpon>202103081505343_creatingDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103100420594_creatingDb1.cs" />
+    <Compile Include="Migrations\202103100420594_creatingDb1.Designer.cs">
+      <DependentUpon>202103100420594_creatingDb1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103100506283_drpcol.cs" />
+    <Compile Include="Migrations\202103100506283_drpcol.Designer.cs">
+      <DependentUpon>202103100506283_drpcol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103100616205_date.cs" />
+    <Compile Include="Migrations\202103100616205_date.Designer.cs">
+      <DependentUpon>202103100616205_date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103100636339_timecol.cs" />
+    <Compile Include="Migrations\202103100636339_timecol.Designer.cs">
+      <DependentUpon>202103100636339_timecol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103100655423_deletetab.cs" />
+    <Compile Include="Migrations\202103100655423_deletetab.Designer.cs">
+      <DependentUpon>202103100655423_deletetab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103100705052_traindeleting.cs" />
+    <Compile Include="Migrations\202103100705052_traindeleting.Designer.cs">
+      <DependentUpon>202103100705052_traindeleting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103100710155_trainadding.cs" />
+    <Compile Include="Migrations\202103100710155_trainadding.Designer.cs">
+      <DependentUpon>202103100710155_trainadding.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\ReservationContext.cs" />
     <Compile Include="Models\Train.cs" />
+    <Compile Include="Models\TrainSchedule.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -182,7 +214,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Admin\Adminlogin.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\afteradmin.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\User\Details.cshtml" />
@@ -191,6 +222,20 @@
     <Content Include="Views\User\afterlogin.cshtml" />
     <Content Include="Views\Welcome\Index.cshtml" />
     <Content Include="Views\User\UserPage.cshtml" />
+    <Content Include="Views\TrainUser\FindTrain.cshtml" />
+    <Content Include="Views\TrainUser\FindTrainList.cshtml" />
+    <Content Include="Views\TrainUser\Trainschedule.cshtml" />
+    <Content Include="Views\TrainAdmin\Create.cshtml" />
+    <Content Include="Views\TrainAdmin\Delete.cshtml" />
+    <Content Include="Views\TrainAdmin\Details.cshtml" />
+    <Content Include="Views\TrainAdmin\Edit.cshtml" />
+    <Content Include="Views\TrainAdmin\Index.cshtml" />
+    <Content Include="Views\TrainSchedules\Create.cshtml" />
+    <Content Include="Views\TrainSchedules\Delete.cshtml" />
+    <Content Include="Views\TrainSchedules\Details.cshtml" />
+    <Content Include="Views\TrainSchedules\Edit.cshtml" />
+    <Content Include="Views\TrainSchedules\Index.cshtml" />
+    <Content Include="Views\Admin\AdminPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -211,6 +256,27 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202103081505343_creatingDb.resx">
       <DependentUpon>202103081505343_creatingDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103100420594_creatingDb1.resx">
+      <DependentUpon>202103100420594_creatingDb1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103100506283_drpcol.resx">
+      <DependentUpon>202103100506283_drpcol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103100616205_date.resx">
+      <DependentUpon>202103100616205_date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103100636339_timecol.resx">
+      <DependentUpon>202103100636339_timecol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103100655423_deletetab.resx">
+      <DependentUpon>202103100655423_deletetab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103100705052_traindeleting.resx">
+      <DependentUpon>202103100705052_traindeleting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103100710155_trainadding.resx">
+      <DependentUpon>202103100710155_trainadding.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

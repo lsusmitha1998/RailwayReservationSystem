@@ -13,5 +13,6 @@ namespace RailwayResevationSystem.Models
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Train> Trains { get; set; }
+        public DbSet<TrainSchedule> TrainSchedules { get; set; }
     }
 }

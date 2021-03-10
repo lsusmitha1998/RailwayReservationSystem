@@ -1,0 +1,44 @@
+﻿@model IEnumerable<RailwayResevationSystem.Models.TrainSchedule>
+
+@{ ViewBag.Title = "Trainschedule"; }
+
+<h2>Trainschedule</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TrainId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stop)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.TrainId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Stop)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ArrivalTime.ToShortTimeString())
+    </td>
+    <td>
+        @* @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+    </td>
+</tr>
+}
+</table>
+<input type="button" value="Book Ticket" class="btn btn-success" onclick="location.href='@Url.Action("Booking","Booking")';"/>

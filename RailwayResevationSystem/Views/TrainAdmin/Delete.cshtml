@@ -1,0 +1,96 @@
+﻿@model RailwayResevationSystem.Models.Train
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Train</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TrainId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrainId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrainName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrainName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Source)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Source)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Destination)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Destination)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfTravel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfTravel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeOfArrival)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimeOfArrival)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrainType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrainType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SeatAvailability)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SeatAvailability)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoOfSeat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoOfSeat)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

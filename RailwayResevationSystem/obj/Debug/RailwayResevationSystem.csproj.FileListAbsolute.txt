@@ -168,3 +168,10 @@ C:\AgileProject\RailwayReservationSystem\RailwayResevationSystem\obj\Debug\Railw
 C:\AgileProject\RailwayReservationSystem\RailwayResevationSystem\obj\Debug\RailwayResevationSystem.csproj.CopyComplete
 C:\AgileProject\RailwayReservationSystem\RailwayResevationSystem\obj\Debug\RailwayResevationSystem.dll
 C:\AgileProject\RailwayReservationSystem\RailwayResevationSystem\obj\Debug\RailwayResevationSystem.pdb
+C:\AgileProject\RailwayReservationSystem\RailwayResevationSystem\obj\Debug\RailwayResevationSystem.Migrations.creatingDb1.resources
+C:\AgileProject\RailwayReservationSystem\RailwayResevationSystem\obj\Debug\RailwayResevationSystem.Migrations.drpcol.resources
+C:\AgileProject\RailwayReservationSystem\RailwayResevationSystem\obj\Debug\RailwayResevationSystem.Migrations.date.resources
+C:\AgileProject\RailwayReservationSystem\RailwayResevationSystem\obj\Debug\RailwayResevationSystem.Migrations.timecol.resources
+C:\AgileProject\RailwayReservationSystem\RailwayResevationSystem\obj\Debug\RailwayResevationSystem.Migrations.deletetab.resources
+C:\AgileProject\RailwayReservationSystem\RailwayResevationSystem\obj\Debug\RailwayResevationSystem.Migrations.traindeleting.resources
+C:\AgileProject\RailwayReservationSystem\RailwayResevationSystem\obj\Debug\RailwayResevationSystem.Migrations.trainadding.resources

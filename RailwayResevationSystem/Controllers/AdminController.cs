@@ -26,8 +26,8 @@ namespace RailwayResevationSystem.Controllers
             bool isadmin = con.Admins.Any(a => a.UserId == adm.UserId && a.password == adm.password);
             if (isadmin)
             {
-                Session["adminId"] = adminDetails.id;
-                return RedirectToAction("afteradmin");
+                Session["adminId"] = adminDetails.UserId;
+                return RedirectToAction("AdminPage");
             }
             else
             {
@@ -42,10 +42,17 @@ namespace RailwayResevationSystem.Controllers
                 return View();
             }
 
-        }
-        public ActionResult afteradmin()
+        }        
+        public ActionResult AdminPage()
         {
-            return View();
+            if(Session["adminId"]!= null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Adminlogin", "Admin");
+            }
         }
 
     }
