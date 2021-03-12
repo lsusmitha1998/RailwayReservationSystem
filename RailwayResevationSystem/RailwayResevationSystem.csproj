@@ -127,6 +127,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BookTicketController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\TrainAdminController.cs" />
     <Compile Include="Controllers\TrainSchedulesController.cs" />
     <Compile Include="Controllers\TrainUserController.cs" />
@@ -167,8 +170,35 @@
     <Compile Include="Migrations\202103100710155_trainadding.Designer.cs">
       <DependentUpon>202103100710155_trainadding.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103110637442_booking.cs" />
+    <Compile Include="Migrations\202103110637442_booking.Designer.cs">
+      <DependentUpon>202103110637442_booking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103120756529_mybookings.cs" />
+    <Compile Include="Migrations\202103120756529_mybookings.Designer.cs">
+      <DependentUpon>202103120756529_mybookings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103121244290_mybookingsup.cs" />
+    <Compile Include="Migrations\202103121244290_mybookingsup.Designer.cs">
+      <DependentUpon>202103121244290_mybookingsup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103121254579_mydelete.cs" />
+    <Compile Include="Migrations\202103121254579_mydelete.Designer.cs">
+      <DependentUpon>202103121254579_mydelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103121257465_mybookadd.cs" />
+    <Compile Include="Migrations\202103121257465_mybookadd.Designer.cs">
+      <DependentUpon>202103121257465_mybookadd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103121306448_myticadd.cs" />
+    <Compile Include="Migrations\202103121306448_myticadd.Designer.cs">
+      <DependentUpon>202103121306448_myticadd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\BookTicket.cs" />
+    <Compile Include="Models\MyBooking.cs" />
+    <Compile Include="Models\MyTicket.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\ReservationContext.cs" />
     <Compile Include="Models\Train.cs" />
@@ -211,7 +241,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Admin\Adminlogin.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
@@ -219,7 +248,6 @@
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
-    <Content Include="Views\User\afterlogin.cshtml" />
     <Content Include="Views\Welcome\Index.cshtml" />
     <Content Include="Views\User\UserPage.cshtml" />
     <Content Include="Views\TrainUser\FindTrain.cshtml" />
@@ -236,6 +264,20 @@
     <Content Include="Views\TrainSchedules\Edit.cshtml" />
     <Content Include="Views\TrainSchedules\Index.cshtml" />
     <Content Include="Views\Admin\AdminPage.cshtml" />
+    <Content Include="Views\TrainUser\NoTrain.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\BookTicket\Index.cshtml" />
+    <Content Include="Views\BookTicket\Booking.cshtml" />
+    <Content Include="Views\Payments\Create.cshtml" />
+    <Content Include="Views\Payments\Delete.cshtml" />
+    <Content Include="Views\Payments\Details.cshtml" />
+    <Content Include="Views\Payments\Edit.cshtml" />
+    <Content Include="Views\Payments\Index.cshtml" />
+    <Content Include="Views\Payments\PaySuccess.cshtml" />
+    <Content Include="Views\BookTicket\TicketBook.cshtml" />
+    <Content Include="Views\BookTicket\TrainId.cshtml" />
+    <Content Include="Views\User\MyBookings.cshtml" />
+    <Content Include="Views\BookTicket\TicketBookcheck.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -277,6 +319,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103100710155_trainadding.resx">
       <DependentUpon>202103100710155_trainadding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103110637442_booking.resx">
+      <DependentUpon>202103110637442_booking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103120756529_mybookings.resx">
+      <DependentUpon>202103120756529_mybookings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103121244290_mybookingsup.resx">
+      <DependentUpon>202103121244290_mybookingsup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103121254579_mydelete.resx">
+      <DependentUpon>202103121254579_mydelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103121257465_mybookadd.resx">
+      <DependentUpon>202103121257465_mybookadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103121306448_myticadd.resx">
+      <DependentUpon>202103121306448_myticadd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

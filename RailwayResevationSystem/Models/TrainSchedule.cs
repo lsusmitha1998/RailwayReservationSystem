@@ -11,9 +11,12 @@ namespace RailwayResevationSystem.Models
         [Key]
         public int Id { get; set; }
         [Required]
+        [Display(Name = "Train No")]
         public int TrainId { get; set; }
+        [Display(Name = "Stations")]
         public string Stop { get; set; }
         [DataType(DataType.DateTime)]
+        [Display(Name = "Arrival Time")]
         public DateTime ArrivalTime { get; set; }
     }
 }

@@ -1,0 +1,71 @@
+﻿@model RailwayResevationSystem.Models.BookTicket
+
+@{
+    ViewBag.Title = "Booking";
+}
+
+<h2>Booking</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Coach, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Coach, new List<SelectListItem>
+                       {
+                   new SelectListItem{Text="1 Tier AC" , Value="1 Tier AC"},
+                    new SelectListItem{Text="2 Tier AC" , Value="2 Tier AC"},
+                     new SelectListItem{Text="Sleeper" , Value="Sleeper"},
+                      new SelectListItem{Text="General" , Value="General"}
+               }, "Select any Coach")
+                @Html.ValidationMessageFor(model => model.Coach, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SeatLocation, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SeatLocation, new List<SelectListItem>
+                       {
+                   new SelectListItem{Text="Upper" , Value="Upper"},
+                    new SelectListItem{Text="Middle" , Value="Middle"},
+                     new SelectListItem{Text="Lower" , Value="Lower"},
+                      new SelectListItem{Text="Side" , Value="Side"}
+               }, "Select any Seat Location")
+                @Html.ValidationMessageFor(model => model.SeatLocation, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NoOfTickets, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NoOfTickets, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NoOfTickets, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Book Ticket" class="btn btn-default"
+                       onclick="location.href='@Url.Action("BookingTicket","BookTicket")'" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+@*routeValues:new {Coach = Model.Coach,Seatloc=Model.SeatLocation,noofseats=Model.NoOfTickets})';"*@

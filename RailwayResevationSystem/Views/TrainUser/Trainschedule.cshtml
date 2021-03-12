@@ -5,7 +5,7 @@
 <h2>Trainschedule</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Session["User"]
 </p>
 <table class="table">
     <tr>
@@ -31,7 +31,11 @@
         @Html.DisplayFor(modelItem => item.Stop)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.ArrivalTime.ToShortTimeString())
+        @{
+            var time = item.ArrivalTime.ToString("hh:mm tt");
+        }
+
+        @Html.DisplayFor(modelItem => time)
     </td>
     <td>
         @* @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
@@ -39,6 +43,6 @@
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
     </td>
 </tr>
-}
+ }
 </table>
-<input type="button" value="Book Ticket" class="btn btn-success" onclick="location.href='@Url.Action("Booking","Booking")';"/>
+@Html.ActionLink("Back to Booking", "TicketBook", "BookTicket")

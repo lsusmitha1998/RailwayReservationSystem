@@ -1,0 +1,53 @@
+﻿
+
+@{
+    ViewBag.Title = "TicketBook";
+}
+
+<h2>TicketBook</h2>
+
+@using (Html.BeginForm("TicketBook","BookTicket",FormMethod.Post)) 
+{
+<table>
+    <tr>        
+        <td>@Html.Label("Intermediate Stations")</td>
+        <td>@Html.ActionLink("click here","TrainSchedule","TrainUser",routeValues:new { id= (int)@Session["Traindid"] },htmlAttributes:new { @class="btn btn-success"})</td>
+     </tr>
+    <tr>
+        <td>@Html.Label("Coach")</td>
+        <td>
+            @Html.DropDownList("Coachvalue", new List<SelectListItem>
+                       {
+                   new SelectListItem{Text="1 Tier AC" , Value="1 Tier AC"},
+                    new SelectListItem{Text="2 Tier AC" , Value="2 Tier AC"},
+                     new SelectListItem{Text="Sleeper class" , Value="Sleeper class"},
+                      new SelectListItem{Text="General" , Value="General"}
+               }, "Select any Coach")
+            </td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Seat Location")</td>
+        <td>
+            @Html.DropDownList("SeatLocation", new List<SelectListItem>
+                       {
+                   new SelectListItem{Text="Upper" , Value="Upper"},
+                    new SelectListItem{Text="Middle" , Value="Middle"},
+                     new SelectListItem{Text="Lower" , Value="Lower"},
+                      new SelectListItem{Text="Side" , Value="Side"}
+               }, "Select any Seat Location")
+            </td>
+    </tr>
+    <tr>
+        <td>@Html.Label("No Of Tickets")</td>
+        <td> @Html.TextBox("nooftickets")</td>
+    </tr>
+    <tr>
+        <td colspan="2" ><input type="submit" value="Book Ticket" class="btn btn-primary" /></td>
+        </tr>
+</table>       
+      
+
+    
+}
+
+

@@ -2,7 +2,7 @@
 
 @{ ViewBag.Title = "FindTrainList"; }
 
-<h2>FindTrainList</h2>
+<h2>Available Trains</h2>
 
 <p>
     @*@Html.ActionLink("Create New", "Create")*@
@@ -36,6 +36,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.NoOfSeat)
+        </th>
+        <th>
+            @Html.DisplayName("Action")
         </th>
         <th></th>
     </tr>
@@ -71,12 +74,22 @@
     <td>
         @Html.DisplayFor(modelItem => item.NoOfSeat)
     </td>
-    <td>
-        @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+    @*<td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
             @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
         @Html.ActionLink("Train Schedule", "Trainschedule", "TrainUser", routeValues: new { id = item.TrainId }, htmlAttributes: null)
     </td>
+        *@
+<td>
+    @*<input type="button" value="Book Ticket" class="btn btn-success"
+           onclick="location.href='@Url.Action("Booking","BookTicket",routeValues:new {trainid = item.TrainId})';" />*@
+    @{
+       // var uid = (string)Session["User"];
+        //var trid = (int)Session[];
+    }
+    @Html.ActionLink("Book Ticket", "TrainId", "BookTicket",routeValues: new { trainid = item.TrainId},htmlAttributes:null)
+</td>
 </tr>}
 
 </table>

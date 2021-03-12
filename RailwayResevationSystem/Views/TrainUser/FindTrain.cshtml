@@ -2,7 +2,8 @@
 
 @{ ViewBag.Title = "FindTrain"; }
 
-<h2>FindTrain</h2>
+
+<h1 style="margin-left:250px;">Plan Jounney</h1>
 
 
 @using (Html.BeginForm())
@@ -10,11 +11,8 @@
 @Html.AntiForgeryToken()
 
                 <div class="form-horizontal">
-                    <h4>Train</h4>
+                    
                     <hr />
-
-
-
                     <div class="form-group">
                         @Html.LabelFor(model => model.Source, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">

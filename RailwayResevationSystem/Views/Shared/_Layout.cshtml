@@ -3,22 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <style>
-    body{
-      background-image: url("C:\AgileProject\Train");
-      /* Full height */
-      height: 100%;
-      /* Center and scale the image nicely */
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-    </style>
+
 </head>
-<body >
+<body style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+      height: 100vh">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -27,23 +18,25 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Railway Resevation system", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Railway Resevation system", "Index", "Welcome", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Welcome")</li>
+                    <li>@Html.ActionLink("Admin", "Adminlogin", "Admin")</li>
+                    <li>@Html.ActionLink("Help", "Help", "Help")</li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+
+        <div style="bottom:0;position: fixed; width:100%;">
+            <footer style="bottom:0;">
+                <p>&copy; @DateTime.Now.Year - Reservation</p>
+            </footer>
+        </div>
     </div>
 
     @Scripts.Render("~/bundles/jquery")

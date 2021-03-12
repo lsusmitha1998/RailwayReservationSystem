@@ -1,35 +1,37 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-}
+﻿@{ ViewBag.Title = "Index"; }
 
-    <div class="container">
-        <div class="jumbotron">
-            <h1>Railway Reservation System</h1>
-            <p>
-                Planning Your Journey!! Book your Tickets Here:)
-            </p>
-        </div>
 
+<div class="container">
+    <div class="jumbotron">
+        <h2>Railway Reservation System</h2>
+        <p>
+            Planning Your Journey!! Book your Tickets Here:)
+        </p>
     </div>
 
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>$(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });</script>
 
 
-    <div class="container">
-        <div class="jumbotron">
-            <div class="col-sm-6">
-                <div class="col-md-12">
-                    @Html.ActionLink("User", "UserPage", "User")
-                </div>
+<div class="container">
+    <div class="jumbotron">
+        <div class="col-sm-6">
+            <div class="col-md-12">
+                <a href="User/UserPage" class="btn btn-primary" data-toggle="tooltip" title="Login here!!">User</a>
+                @* @Html.ActionLink("User", "UserPage", "User")*@
             </div>
+        </div>
 
-            <div class="col-sm-6">
-                <div class="col-md-12">
-                    @Html.ActionLink("Admin", "Adminlogin", "Admin")
-                </div>
+        <div class="col-sm-6">
+            <div class="col-md-12">
+                @* @Html.ActionLink("Admin", "Adminlogin", "Admin")*@
+                <a href="Admin/Adminlogin" class="btn btn-primary" data-toggle="tooltip" title="Login here!!">Admin</a>
             </div>
         </div>
     </div>
-
-    <p>Happy Journey!!</p>
-    <p>Have a safe Trip</p>
+</div>

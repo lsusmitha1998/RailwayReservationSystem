@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "MyBookings";
+}
+
+<h2>MyBookings</h2>
+<h2>Enter your User Id to view your bookings</h2>
+@using (Html.BeginForm("MyBookings", "User", FormMethod.Post))
+{
+    <ol>
+        <li>
+            @Html.Label("User Id")
+            @Html.TextBox("userid")
+        </li>
+    </ol>
+    <button type="submit" class="btn btn-primary">Submit</button>   
+
+}
+

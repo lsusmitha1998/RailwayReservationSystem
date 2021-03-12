@@ -25,12 +25,22 @@ namespace RailwayResevationSystem.Controllers
         {
             //var trainlist = from i in con.Trains where i.Source == train.Source && i.Destination == train.Destination && Convert(date,i.DateOfTravel) == train.DateOfTravel select i;
             var trains = con.Trains.Where(t => t.Source == train.Source && t.Destination == train.Destination && t.DateOfTravel == train.DateOfTravel).ToList();
-            return View("FindTrainList", trains);
+            if(trains?.Any()!= true)
+            {
+                return View("NoTrain");
+            }
+            else
+            {
+                return View("FindTrainList", trains);
+            }
+            
         }
         public ActionResult Trainschedule(int? id)
         {
 
             var schedule = con.TrainSchedules.Where(t => t.TrainId == id).ToList();
+            TempData["trainid"] = id;
+            TempData.Keep();
             return View(schedule);
         }
     }

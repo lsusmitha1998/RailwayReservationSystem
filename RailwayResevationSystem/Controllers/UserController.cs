@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using System.Web.UI;
 
 namespace RailwayResevationSystem.Controllers
 {
@@ -35,7 +36,9 @@ namespace RailwayResevationSystem.Controllers
                 con.Users.Add(user);
                 con.SaveChanges();
                 //return View();
-                return RedirectToAction("Index", user);
+                
+                //Response.Write("<script>alert('Registered successfully')</script>");
+                return RedirectToAction("Login", "User",new { msg="success"});
             }
 
             return View(user);
@@ -94,21 +97,12 @@ namespace RailwayResevationSystem.Controllers
         {
             bool isuser = con.Users.Any(u => u.UserId == user.UserId && u.Password == user.Password);
             var userDetails = con.Users.Where(u => u.UserId == user.UserId && u.Password == user.Password).FirstOrDefault();
-            /*if (userDetails == null)
-            {
-                ModelState.AddModelError("", "Not a user! Please click on NEW USER to register");
-                return RedirectToAction("Register", "User");
-            }
-            else
-            {
-                Session["Id"] = userDetails.Id;
-                return RedirectToAction("afterlogin", User);
-            }*/
+                       
             if (isuser)
             {
                 //FormsAuthentication.SetAuthCookie("", true);
-                Session["Id"] = userDetails.Id;
-                return RedirectToAction("afterlogin");
+                Session["User"] = userDetails.UserId;
+                return RedirectToAction("FindTrain", "TrainUser");
             }
             else
             {
@@ -124,11 +118,26 @@ namespace RailwayResevationSystem.Controllers
                 return View();
             }
         }
-        //[Authorize]
-        public ActionResult afterlogin()
+        /*[HttpGet]
+        public ActionResult MyBookings()
         {
             return View();
         }
+        [HttpPost]       
+        public ActionResult MyBookings(FormCollection form)
+        {
+            ViewBag.name = form["userid"].ToString(); 
+            string userid = form["userid"].ToString();
+            //var mybookings = con.MyBookings.Where(b => b.UserId == userid).ToList();
+            //return View("Mybook",mybookings);
+        }*/
+
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            return RedirectToAction("Index", "Welcome");
+        }
+        
 
     }
 }

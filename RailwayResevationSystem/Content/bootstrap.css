@@ -158,21 +158,22 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
-body {
-    /* The image used */
-    background-image: url("C:\AgileProject\Train");
-    /* Full height */
-    height: 100%;
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.login-box {
+    width: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 10px;
+    margin: auto;
+    transform: translate(-50%,-50%);
+    color: black;
+    border: 4px solid #4caf50;    
 }
 input[type="search"] {
-  -webkit-appearance: textfield;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
+    -webkit-appearance: textfield;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
 }
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
