@@ -2,11 +2,9 @@
 
 @{ ViewBag.Title = "Trainschedule"; }
 
-<h2>Trainschedule</h2>
+<h2>Halting Stations</h2>
 
-<p>
-    @Session["User"]
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -45,4 +43,6 @@
 </tr>
  }
 </table>
-@Html.ActionLink("Back to Booking", "TicketBook", "BookTicket")
+@*@Html.ActionLink("Back to Booking", "TicketBook", "BookTicket")*@
+<input type="button" value="Back to Booking" class="btn btn-primary"
+       onclick="location.href='@Url.Action( "TicketBook", "BookTicket")';" />

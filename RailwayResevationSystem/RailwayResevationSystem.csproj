@@ -194,10 +194,25 @@
     <Compile Include="Migrations\202103121306448_myticadd.Designer.cs">
       <DependentUpon>202103121306448_myticadd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103121544455_myticketscardno.cs" />
+    <Compile Include="Migrations\202103121544455_myticketscardno.Designer.cs">
+      <DependentUpon>202103121544455_myticketscardno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103130955509_canceldate.cs" />
+    <Compile Include="Migrations\202103130955509_canceldate.Designer.cs">
+      <DependentUpon>202103130955509_canceldate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103131059311_datetimeerror.cs" />
+    <Compile Include="Migrations\202103131059311_datetimeerror.Designer.cs">
+      <DependentUpon>202103131059311_datetimeerror.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103131131449_waitlist.cs" />
+    <Compile Include="Migrations\202103131131449_waitlist.Designer.cs">
+      <DependentUpon>202103131131449_waitlist.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\BookTicket.cs" />
-    <Compile Include="Models\MyBooking.cs" />
     <Compile Include="Models\MyTicket.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\ReservationContext.cs" />
@@ -278,6 +293,8 @@
     <Content Include="Views\BookTicket\TrainId.cshtml" />
     <Content Include="Views\User\MyBookings.cshtml" />
     <Content Include="Views\BookTicket\TicketBookcheck.cshtml" />
+    <Content Include="Views\User\MyBook.cshtml" />
+    <Content Include="Views\User\Cancel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -337,6 +354,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103121306448_myticadd.resx">
       <DependentUpon>202103121306448_myticadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103121544455_myticketscardno.resx">
+      <DependentUpon>202103121544455_myticketscardno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103130955509_canceldate.resx">
+      <DependentUpon>202103130955509_canceldate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103131059311_datetimeerror.resx">
+      <DependentUpon>202103131059311_datetimeerror.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103131131449_waitlist.resx">
+      <DependentUpon>202103131131449_waitlist.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

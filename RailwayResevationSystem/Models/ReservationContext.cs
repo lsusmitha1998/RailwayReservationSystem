@@ -15,7 +15,7 @@ namespace RailwayResevationSystem.Models
         public DbSet<Train> Trains { get; set; }
         public DbSet<TrainSchedule> TrainSchedules { get; set; }
         public DbSet<BookTicket> BookTickets { get; set; }
-        public DbSet<MyBooking> MyBookings { get; set; }
+        
         public DbSet<MyTicket> MyTickets { get; set; }
         
     }

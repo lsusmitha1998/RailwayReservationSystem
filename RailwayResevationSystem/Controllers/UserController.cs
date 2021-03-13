@@ -118,7 +118,7 @@ namespace RailwayResevationSystem.Controllers
                 return View();
             }
         }
-        /*[HttpGet]
+        [HttpGet]
         public ActionResult MyBookings()
         {
             return View();
@@ -128,16 +128,108 @@ namespace RailwayResevationSystem.Controllers
         {
             ViewBag.name = form["userid"].ToString(); 
             string userid = form["userid"].ToString();
+            var mytickets = con.MyTickets.Where(t => t.UserId == userid).ToList();
+            return View("MyBook",mytickets);
             //var mybookings = con.MyBookings.Where(b => b.UserId == userid).ToList();
             //return View("Mybook",mybookings);
-        }*/
+        }
 
         public ActionResult Logout()
         {
             Session.Abandon();
             return RedirectToAction("Index", "Welcome");
         }
-        
+        public ActionResult Cancel(int? id)
+        {
+            var user = con.MyTickets.Find(id);
+            int trainid = user.TrainId;
+            var train = con.Trains.Where(t => t.TrainId == trainid).FirstOrDefault();
+            var bookedtrain = con.BookTickets.Where(t => t.UserId == user.UserId && t.TrainId == user.TrainId && t.NoOfTickets == user.NoofTickets).FirstOrDefault();
+            DateTime traintime = train.DateOfTravel;
+            //DateTime bookedtime = user.DateOfBooking;
+            //TimeSpan ts = DateTime.Now - user.DateOfBooking;
+            TimeSpan ts = traintime - DateTime.Now;
+            var diff = ts.TotalHours;
+            double price = user.Price;
+            string status = user.ConfirmationStatus;
+            double refund = 0;
+            if(status == "Waiting")
+            {
+                refund = price;
+            }
+            else
+            {
+                if (diff < 1)
+                {
+                    refund = 0;
+                }
+                else if (diff >= 1 && diff < 2)
+                {
+                    refund = 0.5 * price;
+                }
+                else if (diff >= 2 && diff < 24)
+                {
+                    refund = 0.7 * price;
+                }
+                else if (diff >= 24 && diff < 48)
+                {
+                    refund = 0.8 * price;
+                }
+                else
+                {
+                    refund = 0.9 * price;
+                }
+
+            }
+
+            
+            
+            ViewBag.refund = refund;
+            Session["refund"] = refund;
+            con.MyTickets.Remove(user);
+            bookedtrain.CancelledDate = DateTime.Now;
+            //con.BookTickets.Remove(bookedtrain);
+            var payeddata = con.Payments.Where(p => p.CardNo == user.CardNo).FirstOrDefault();
+            payeddata.AvailableBalance = payeddata.AvailableBalance + refund;
+            //waiting list
+            int seats = user.NoofTickets;
+            int waitmore = 0;
+            
+           
+                var userup = con.MyTickets.Where(t => t.ConfirmationStatus == "Waiting").OrderBy(t => t.DateOfBooking).ToList();
+            foreach(var item in userup)
+            {
+                if (item.NoofTickets <= seats)
+                {
+                    item.ConfirmationStatus = "Booked";
+                    seats = seats - item.NoofTickets;
+                }
+                else
+                {
+                    item.ConfirmationStatus = "Waiting";
+                    waitmore = seats;
+                }
+            }
+            /*if (userup.NoofTickets <= seats)
+                {
+                    userup.ConfirmationStatus = "Booked";
+                    seats = seats - userup.NoofTickets;
+                }
+                else
+                {
+                    userup.ConfirmationStatus = "Waiting";
+                    waitmore = seats;
+                }*/
+                     
+
+            train.NoOfSeat = train.NoOfSeat + waitmore;
+            if(train.NoOfSeat>0)
+            {
+                train.SeatAvailability = "available";
+            }
+            con.SaveChanges();
+            return View();
+        }        
 
     }
 }

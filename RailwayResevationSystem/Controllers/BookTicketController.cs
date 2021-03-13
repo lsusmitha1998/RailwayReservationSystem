@@ -59,7 +59,7 @@ namespace RailwayResevationSystem.Controllers
             {
                 price = (tickets * 100);
             }
-            book.Price = price;
+            book.Price = price;            
             //con.BookTickets.Add(book);
             //con.SaveChanges();
             Session["Price"] = price;

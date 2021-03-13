@@ -7,13 +7,16 @@
 <h2>Enter your User Id to view your bookings</h2>
 @using (Html.BeginForm("MyBookings", "User", FormMethod.Post))
 {
-    <ol>
-        <li>
-            @Html.Label("User Id")
-            @Html.TextBox("userid")
-        </li>
-    </ol>
-    <button type="submit" class="btn btn-primary">Submit</button>   
+<div style="padding:20px">
+    <table>
+        <tr style="padding:20px"><td>@Html.Label("User Id")</td></tr>
+        <tr style="padding:20px"><td> @Html.TextBox("userid")</td></tr>
+        
+    </table>
+</div>
+<div style="padding:20px">
+    <button type="submit" class="btn btn-success">Submit</button>
+</div>
 
 }
 

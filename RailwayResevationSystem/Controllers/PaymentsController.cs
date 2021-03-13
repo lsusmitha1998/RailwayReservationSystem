@@ -44,15 +44,58 @@ namespace RailwayResevationSystem.Controllers
             if(pay != null)
             {
                 pay.AvailableBalance = (pay.AvailableBalance - (double)Session["Price"]);
-                BookTicket booked = (BookTicket)TempData["booking1"];                
+                BookTicket booked = (BookTicket)TempData["booking1"];
+                booked.CardNo = pay.CardNo;
+                booked.BookedDate = DateTime.Now;
                 TempData.Keep();
                 con.BookTickets.Add(booked);
-                //tickets reduceded from train
-                //details added to mytickets
+                //tickets reduced from train
+                int tid = booked.TrainId;
+                string uid = booked.UserId;
+                var train = con.Trains.Where(t => t.TrainId == tid).FirstOrDefault();
+                if(train.NoOfSeat>0)
+                {
+                    train.NoOfSeat = (train.NoOfSeat - booked.NoOfTickets);
+                }
+                else
+                {
+                    train.NoOfSeat = 0;
+                }
+                int noofseats = train.NoOfSeat;
+                if (noofseats == 0)
+                {
+                    train.SeatAvailability = "waiting";
+                   // int i = 0;
+                    train.NoOfSeat = 0;
+                }
+                
+                
+                
+                //adding to user booking
+                string status = train.SeatAvailability;
+                var mytickets = new MyTicket();
+                mytickets.UserId = uid;
+                mytickets.TrainId = tid;
+                mytickets.Source = train.Source;
+                mytickets.Destination = train.Destination;
+                mytickets.NoofTickets = booked.NoOfTickets;
+                mytickets.Price = booked.Price;
+                mytickets.DateOfBooking =DateTime.Now;
+                mytickets.CardNo = pay.CardNo;
+                string sts;
+                if(status == "Available" ||status == "available")
+                    {
+                    sts = "confirmed";
+                }
+                else
+                {
+                    sts = "Waiting";
+                }
+                mytickets.ConfirmationStatus = sts;
+                con.MyTickets.Add(mytickets);                
                 //add col cardno,bookdate in booktickets
                 con.SaveChanges();
                 return RedirectToAction("PaySuccess");
-
             }
             else
             {                

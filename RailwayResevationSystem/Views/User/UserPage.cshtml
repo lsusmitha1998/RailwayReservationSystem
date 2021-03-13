@@ -3,12 +3,12 @@
     ViewBag.Title = "UserPage";
 }
 <div class="container" style="border-radius:20px,75px,40px;">
-    <div class="jumbotron" style="border-radius:20px,75px,40px;font-size:40px;text-align:center;">
+   <div class="jumbotron" style="text-align: center;border-radius: 20px,75px,40px;">
         @Html.ActionLink("New User", "Register", "User",new { @class ="btn btn-success"})
     </div>
 </div>
 <div class="container img-rounded bg-dark" >
-    <div  style="text-align: center;">
+    <div  class="jumbotron" style="text-align: center;">
         @Html.ActionLink("Login", "Login", "User", new { @class = "btn btn-primary" })
     </div>
 </div>

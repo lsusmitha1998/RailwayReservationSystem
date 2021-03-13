@@ -88,7 +88,7 @@
        // var uid = (string)Session["User"];
         //var trid = (int)Session[];
     }
-    @Html.ActionLink("Book Ticket", "TrainId", "BookTicket",routeValues: new { trainid = item.TrainId},htmlAttributes:null)
+    @Html.ActionLink("Book Ticket", "TrainId", "BookTicket",routeValues: new { trainid = item.TrainId},htmlAttributes: new { @class = "btn btn-success" })
 </td>
 </tr>}
 

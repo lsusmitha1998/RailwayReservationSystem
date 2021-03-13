@@ -181,3 +181,7 @@ C:\AgileProject\RailwayReservationSystem\RailwayResevationSystem\obj\Debug\Railw
 C:\AgileProject\RailwayReservationSystem\RailwayResevationSystem\obj\Debug\RailwayResevationSystem.Migrations.mydelete.resources
 C:\AgileProject\RailwayReservationSystem\RailwayResevationSystem\obj\Debug\RailwayResevationSystem.Migrations.mybookadd.resources
 C:\AgileProject\RailwayReservationSystem\RailwayResevationSystem\obj\Debug\RailwayResevationSystem.Migrations.myticadd.resources
+C:\AgileProject\RailwayReservationSystem\RailwayResevationSystem\obj\Debug\RailwayResevationSystem.Migrations.myticketscardno.resources
+C:\AgileProject\RailwayReservationSystem\RailwayResevationSystem\obj\Debug\RailwayResevationSystem.Migrations.canceldate.resources
+C:\AgileProject\RailwayReservationSystem\RailwayResevationSystem\obj\Debug\RailwayResevationSystem.Migrations.datetimeerror.resources
+C:\AgileProject\RailwayReservationSystem\RailwayResevationSystem\obj\Debug\RailwayResevationSystem.Migrations.waitlist.resources
