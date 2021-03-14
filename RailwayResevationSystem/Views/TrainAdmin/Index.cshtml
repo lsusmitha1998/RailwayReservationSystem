@@ -4,11 +4,26 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<h2>Train Details</h2>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#buttonid1').click(function () {
+            document.location = '@Url.Action("Create","TrainAdmin")';
+        });
+    });
+</script>
+@*
+    <p>
+        @Html.ActionLink("Add New", "Create")
+    </p>
+*@
+<div class="col-sm-6">
+    <input type="submit" id="buttonid1" value="Add New" class="btn btn-primary" />
+</div>
+<br />
+<br />
 <table class="table">
     <tr>
         <th>
@@ -41,41 +56,42 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TrainId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TrainName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Source)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Destination)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateOfTravel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TimeOfArrival)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TrainType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SeatAvailability)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NoOfSeat)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrainId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrainName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Source)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfTravel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeOfArrival)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrainType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeatAvailability)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfSeat)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>

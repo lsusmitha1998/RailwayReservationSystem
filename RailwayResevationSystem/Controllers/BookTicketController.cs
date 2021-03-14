@@ -53,7 +53,7 @@ namespace RailwayResevationSystem.Controllers
             }
             else if (coach == "Sleeper class")
             {
-                book.Price = (tickets * 400);
+                price = (tickets * 400);
             }
             else
             {
@@ -64,6 +64,10 @@ namespace RailwayResevationSystem.Controllers
             //con.SaveChanges();
             Session["Price"] = price;
             TempData["booking"] = book;
+            /*Session["book"] = book;
+            var book1 = new BookTicket();
+            book1 = (BookTicket)Session["book"];
+            int train = book1.TrainId;*/
             TempData.Keep();
             return RedirectToAction("Create", "Payments");
             

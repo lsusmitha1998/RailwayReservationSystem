@@ -8,7 +8,12 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body style="background-image: url('https://images.unsplash.com/photo-1527684651001-731c474bbb5a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'); ">
+@*<div class="bg-image"
+    style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+          height: 100vh">
+    </div>*@
+@*style="background-image: url('https://images.unsplash.com/photo-1527684651001-731c474bbb5a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'); "*@
+<body style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -23,7 +28,9 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Welcome")</li>
                     <li>@Html.ActionLink("Admin", "Adminlogin", "Admin")</li>
-                    <li>@Html.ActionLink("Help", "Help", "Help")</li>
+                    <li>@Html.ActionLink("Covid 19 Alert", "Alert", "Home")</li>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <li> @Html.ActionLink("Logout", "Logout", "User")</li>
                 </ul>
             </div>
         </div>

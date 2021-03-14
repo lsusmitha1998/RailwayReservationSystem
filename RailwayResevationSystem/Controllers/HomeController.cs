@@ -13,5 +13,9 @@ namespace RailwayResevationSystem.Controllers
         {
             return View();
         }
+        public ActionResult Alert()
+        {
+            return View();
+        }
     }
 }

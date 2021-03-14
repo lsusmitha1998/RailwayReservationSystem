@@ -5,6 +5,58 @@
 @{
     ViewBag.Title = "Register";
 }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script src="sweetalert2.all.min.js"></script>
+<!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+<script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
+<script type="text/javascript">
+                $(document).ready(function () {
+                    $("#submit").click(function() {
+            var UserId = $("#UserId").val();
+            var Password = $("#Password").val();
+            var FirstName = $("#FirstName").val();
+            var LastName = $("#LastName").val();
+            var Gender = $("#Gender").val();
+            var DateOfBirth = $("#DateOfBirth").val();
+            var Email = $("#Email").val();
+            var ContactNumber = $("#ContactNumber").val();
+                        if (UserId != "" && Password != "" && FirstName != "" && LastName != "" && Gender != "" && DateOfBirth != "" && Email != "" && ContactNumber != "") {
+                            Swal.fire({
+
+                                icon: 'success',
+                                title: 'Registered Successfullyy!!',
+                                button:'OK',
+                                @*showConfirmButton: false,*@
+                                timer: 5000
+                            })
+                            return false;
+            }
+
+        })
+    })
+
+
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#buttonid1').click(function () {
+            document.location = '@Url.Action("Login","User")';
+        });
+
+    });
+</script>
 <div class="login-box" style="align-content:center;">
     <h2>User Registration</h2>
 
@@ -86,14 +138,13 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Register" class="btn btn-success" />
+                    <input type="submit" id="submit" value="Register" class="btn btn-success" />
+                    <input type="submit" id="buttonid1" value="Click to login" class="btn btn-primary" />
                 </div>
             </div>
         </div>
     }
-    <div  style="color:black;font-size:20px;">
-        @Html.ActionLink("Login", "Login")
-    </div>
+   
 </div>
 
 

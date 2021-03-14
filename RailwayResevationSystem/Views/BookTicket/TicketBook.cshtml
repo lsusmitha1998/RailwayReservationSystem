@@ -3,8 +3,17 @@
 <h2>Book Your tickets</h2>
 <br />
 
-@Html.Label("Intermediate Stations")
-@Html.ActionLink("click here", "TrainSchedule", "TrainUser", routeValues: new { id = (int)@Session["Traindid"] }, htmlAttributes: new { @class = "btn btn-primary" })
+@*@Html.Label("Intermediate Stations")
+    @Html.ActionLink("click here", "TrainSchedule", "TrainUser", routeValues: new { id = (int)@Session["Traindid"] }, htmlAttributes: new { @class = "btn btn-primary" })*@
+<div class="jumbotron" style="background-color:pink;">
+    <center>
+        <h3>Halting Stations</h3>
+        <br />
+        @Html.ActionLink("Click Here!!", "TrainSchedule", "TrainUser", routeValues: new { id = (int)@Session["Traindid"] }, htmlAttributes: new { @class = "btn btn-primary" })
+    </center>
+</div>
+
+
 
 
 @using (Html.BeginForm("TicketBook", "BookTicket", FormMethod.Post))
@@ -20,7 +29,7 @@
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
 
                                         @Html.DropDownList("Coachvalue", new List<SelectListItem>
-                                               {
+                                                                       {
                    new SelectListItem{Text="1 Tier AC" , Value="1 Tier AC"},
                     new SelectListItem{Text="2 Tier AC" , Value="2 Tier AC"},
                      new SelectListItem{Text="Sleeper class" , Value="Sleeper class"},
@@ -33,7 +42,7 @@
                                         @Html.Label("Seat Location")
                                         &nbsp;&nbsp;
                                         @Html.DropDownList("SeatLocation", new List<SelectListItem>
-                                               {
+                                                                       {
                    new SelectListItem{Text="Upper" , Value="Upper"},
                     new SelectListItem{Text="Middle" , Value="Middle"},
                      new SelectListItem{Text="Lower" , Value="Lower"},
@@ -49,4 +58,5 @@
                                     </div>
                                 </div>
 
-                                                <input type="submit" value="Book Ticket" class="btn btn-primary" />}
+                                                <input type="submit" value="Book Ticket" class="btn btn-primary" />
+}

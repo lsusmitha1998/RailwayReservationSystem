@@ -24,6 +24,7 @@ namespace RailwayResevationSystem.Controllers
         public ActionResult FindTrain(Train train)
         {
             //var trainlist = from i in con.Trains where i.Source == train.Source && i.Destination == train.Destination && Convert(date,i.DateOfTravel) == train.DateOfTravel select i;
+           
             var trains = con.Trains.Where(t => t.Source == train.Source && t.Destination == train.Destination && t.DateOfTravel == train.DateOfTravel).ToList();
             if(trains?.Any()!= true)
             {

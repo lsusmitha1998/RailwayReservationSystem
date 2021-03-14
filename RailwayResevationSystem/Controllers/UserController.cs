@@ -137,7 +137,7 @@ namespace RailwayResevationSystem.Controllers
         public ActionResult Logout()
         {
             Session.Abandon();
-            return RedirectToAction("Index", "Welcome");
+            return RedirectToAction("Login", "User");
         }
         public ActionResult Cancel(int? id)
         {
@@ -209,6 +209,10 @@ namespace RailwayResevationSystem.Controllers
                     item.ConfirmationStatus = "Waiting";
                     waitmore = seats;
                 }
+            }
+            if(userup?.Any()!=true)
+            {
+                train.NoOfSeat = train.NoOfSeat + seats;
             }
             /*if (userup.NoofTickets <= seats)
                 {

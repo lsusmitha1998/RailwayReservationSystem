@@ -1,10 +1,40 @@
 ﻿@model RailwayResevationSystem.Models.Admin
-@{
-    ViewBag.Title = "AdminPage";
-}
+@{ ViewBag.Title = "AdminPage"; }
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#buttonid1').click(function () {
+            document.location = '@Url.Action("Index","TrainAdmin")';
+        });
+         $('#buttonid2').click(function () {
+            document.location = '@Url.Action("Index","TrainSchedules")';
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#buttonid2').click(function () {
+            document.location = '@Url.Action("Index","TrainSchedules")';
+        });
 
+    });
+</script>
 
-<h1>Hi Admin @Session["adminId"]</h1>
-@Html.ActionLink("Edit Train Details","Index","TrainAdmin")
-@Html.ActionLink("Edit Stop Points","Index","TrainSchedules")
+<h2>Hi @Session["adminId"]!!</h2>
+<br />
+<br />
+<div class="jumbotron" style="background-color:pink;">
+    <center>
+        <input type="submit" id="buttonid1" value="Edit Train Details" class="btn btn-primary" />
+    </center>
+</div>
+<div class="jumbotron" style="background-color:aqua;">
+    <center>
+        <input type="submit" id="buttonid2" value="Edit Stop Points" class="btn btn-primary" />
+    </center>
+</div>
+@*
+    @Html.ActionLink("Edit Train Details", "Index", "TrainAdmin")
 
+    @Html.ActionLink("Edit Stop Points", "Index", "TrainSchedules")
+*@

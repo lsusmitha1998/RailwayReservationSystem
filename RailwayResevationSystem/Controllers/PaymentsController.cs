@@ -60,6 +60,7 @@ namespace RailwayResevationSystem.Controllers
                 else
                 {
                     train.NoOfSeat = 0;
+                    int waiting = booked.NoOfTickets;
                 }
                 int noofseats = train.NoOfSeat;
                 if (noofseats == 0)
