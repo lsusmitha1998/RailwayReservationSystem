@@ -12,6 +12,7 @@ namespace RailwayResevationSystem.Models
         [Key]
         public int id { get; set; }
         [Required(ErrorMessage = "Enter UserId")]
+        
         public string UserId { get; set; }
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "Enter Password")]

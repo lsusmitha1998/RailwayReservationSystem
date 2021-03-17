@@ -53,14 +53,15 @@ namespace RailwayResevationSystem.Controllers
                 int tid = booked.TrainId;
                 string uid = booked.UserId;
                 var train = con.Trains.Where(t => t.TrainId == tid).FirstOrDefault();
-                if(train.NoOfSeat>0)
+                string status = train.SeatAvailability;
+                if (train.NoOfSeat>0)
                 {
                     train.NoOfSeat = (train.NoOfSeat - booked.NoOfTickets);
                 }
                 else
                 {
                     train.NoOfSeat = 0;
-                    int waiting = booked.NoOfTickets;
+                    //int waiting = booked.NoOfTickets;
                 }
                 int noofseats = train.NoOfSeat;
                 if (noofseats == 0)
@@ -73,7 +74,7 @@ namespace RailwayResevationSystem.Controllers
                 
                 
                 //adding to user booking
-                string status = train.SeatAvailability;
+                //string status = train.SeatAvailability;
                 var mytickets = new MyTicket();
                 mytickets.UserId = uid;
                 mytickets.TrainId = tid;
@@ -86,7 +87,7 @@ namespace RailwayResevationSystem.Controllers
                 string sts;
                 if(status == "Available" ||status == "available")
                     {
-                    sts = "confirmed";
+                    sts = "Confirmed";
                 }
                 else
                 {

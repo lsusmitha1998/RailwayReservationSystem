@@ -296,6 +296,7 @@
     <Content Include="Views\User\MyBook.cshtml" />
     <Content Include="Views\User\Cancel.cshtml" />
     <Content Include="Views\Home\Alert.cshtml" />
+    <Content Include="Views\User\NoBooking.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

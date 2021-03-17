@@ -30,10 +30,61 @@ namespace RailwayResevationSystem.Controllers
         [HttpPost]
         public ActionResult TicketBook(FormCollection form)
         {
-            /*ViewBag.coach= form["Coachvalue"].ToString();
+            try
+            {
+                /*ViewBag.coach= form["Coachvalue"].ToString();
             ViewBag.trainid = (int)Session["Traindid"];
             ViewBag.user= (string)Session["User"];
             ViewBag.tickets = Convert.ToInt32(form["nooftickets"].ToString());*/
+                var book = new BookTicket();
+                book.Coach = form["Coachvalue"].ToString();
+                book.SeatLocation = form["SeatLocation"].ToString();
+                book.NoOfTickets = Convert.ToInt32(form["nooftickets"].ToString());
+                book.TrainId = (int)Session["Traindid"];
+                book.UserId = (string)Session["User"];
+                int tickets = Convert.ToInt32(form["nooftickets"].ToString());
+                double price = 0;
+                string coach = form["Coachvalue"].ToString();
+                if (coach == "1 Tier AC")
+                {
+                    price = (tickets * 900);
+                }
+                else if (coach == "2 Tier AC")
+                {
+                    price = (tickets * 700);
+                }
+                else if (coach == "Sleeper class")
+                {
+                    price = (tickets * 400);
+                }
+                else
+                {
+                    price = (tickets * 100);
+                }
+                book.Price = price;
+                //con.BookTickets.Add(book);
+                //con.SaveChanges();
+                Session["Price"] = price;
+                TempData["booking"] = book;
+                /*Session["book"] = book;
+                var book1 = new BookTicket();
+                book1 = (BookTicket)Session["book"];
+                int train = book1.TrainId;*/
+                TempData.Keep();
+                return RedirectToAction("Create", "Payments");
+
+
+                // return View("TicketBookcheck");
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError("",e.Message);
+                return View();
+            }
+            /*ViewBag.coach= form["Coachvalue"].ToString();
+            ViewBag.trainid = (int)Session["Traindid"];
+            ViewBag.user= (string)Session["User"];
+            ViewBag.tickets = Convert.ToInt32(form["nooftickets"].ToString());
             var book = new BookTicket();
             book.Coach = form["Coachvalue"].ToString();
             book.SeatLocation = form["SeatLocation"].ToString();
@@ -67,12 +118,12 @@ namespace RailwayResevationSystem.Controllers
             /*Session["book"] = book;
             var book1 = new BookTicket();
             book1 = (BookTicket)Session["book"];
-            int train = book1.TrainId;*/
+            int train = book1.TrainId;
             TempData.Keep();
             return RedirectToAction("Create", "Payments");
             
                  
-           // return View("TicketBookcheck");
+           // return View("TicketBookcheck");*/
             
         }
         public ActionResult OnBook()

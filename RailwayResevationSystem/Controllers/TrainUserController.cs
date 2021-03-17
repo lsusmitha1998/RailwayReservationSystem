@@ -11,10 +11,7 @@ namespace RailwayResevationSystem.Controllers
     {
         // GET: TrainUser
         ReservationContext con = new ReservationContext();
-        public ActionResult Index()
-        {
-            return View();
-        }
+        
         public ActionResult FindTrain()
         {
             Train train = new Train();

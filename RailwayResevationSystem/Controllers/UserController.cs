@@ -129,7 +129,15 @@ namespace RailwayResevationSystem.Controllers
             ViewBag.name = form["userid"].ToString(); 
             string userid = form["userid"].ToString();
             var mytickets = con.MyTickets.Where(t => t.UserId == userid).ToList();
-            return View("MyBook",mytickets);
+            if(mytickets?.Any()!= true)
+            {
+                return View("NoBooking");
+            }
+            else
+            {
+                return View("MyBook", mytickets);
+            }
+            
             //var mybookings = con.MyBookings.Where(b => b.UserId == userid).ToList();
             //return View("Mybook",mybookings);
         }
@@ -201,7 +209,7 @@ namespace RailwayResevationSystem.Controllers
             {
                 if (item.NoofTickets <= seats)
                 {
-                    item.ConfirmationStatus = "Booked";
+                    item.ConfirmationStatus = "Confirmed";
                     seats = seats - item.NoofTickets;
                 }
                 else
