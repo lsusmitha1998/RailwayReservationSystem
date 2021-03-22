@@ -232,8 +232,8 @@ namespace RailwayResevationSystem.Controllers
                     userup.ConfirmationStatus = "Waiting";
                     waitmore = seats;
                 }*/
-                     
 
+            train.NoOfSeat = train.NoOfSeat + seats;
             train.NoOfSeat = train.NoOfSeat + waitmore;
             if(train.NoOfSeat>0)
             {
@@ -242,6 +242,31 @@ namespace RailwayResevationSystem.Controllers
             con.SaveChanges();
             return View();
         }        
+        public ActionResult PaymentDetails()
+        {
+            if(Session["User"] != null)
+            {
+
+                string userid = (string)Session["User"];
+                var paylist = con.BookTickets.Where(p => p.UserId == userid).ToList();
+                if(paylist?.Any() != true)
+                {
+                    //Response.Write("<center><h2 style="+"color:red"+">You have not done any payments yet</h2></center>");
+
+                    return RedirectToAction("FindTrain","TrainUser",new { msg = "nopay"});
+                }
+                else
+                {
+                    return View(paylist);
+                }
+                
+            }
+            else
+            {                
+                return RedirectToAction("Login","User");
+            }
+            
+        }
 
     }
 }

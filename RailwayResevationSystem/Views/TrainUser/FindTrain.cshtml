@@ -1,7 +1,16 @@
 ﻿@model RailwayResevationSystem.Models.Train
 
 @{ ViewBag.Title = "FindTrain"; }
+@{ var para = Request.QueryString["msg"];
+    if (para == "nopay")
+    {
 
+        <div class="alert alert-info alert-dismissable" style="font-size:20px;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>No Payments made till now!!</strong>
+        </div>
+    }
+}
 
 <h1 style="margin-left:250px;">Plan Journey</h1>
 
@@ -11,7 +20,7 @@
 @Html.AntiForgeryToken()
 
                 <div class="form-horizontal">
-                    
+
                     <hr />
                     <div class="form-group">
                         @Html.LabelFor(model => model.Source, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -43,12 +52,16 @@
                             <input type="submit" value="Search" class="btn btn-success" />
                         </div>
                     </div>
-                </div>
-                }
+                </div>}
 <div>
-    @Html.ActionLink("Your Bookings", "MyBookings", "User")
-</div>
 
+    <input type="button" value="Your Bookings" class="btn btn-primary"
+           onclick="location.href='@Url.Action( "MyBookings", "User")';" />
+
+
+    <input style="padding:10px,10px,10px,10px;" type="button" value="Previous Payments" class="btn btn-primary"
+           onclick="location.href='@Url.Action( "PaymentDetails", "User")';" />
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

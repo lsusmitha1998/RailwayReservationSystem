@@ -185,3 +185,4 @@ C:\AgileProject\RailwayReservationSystem\RailwayResevationSystem\obj\Debug\Railw
 C:\AgileProject\RailwayReservationSystem\RailwayResevationSystem\obj\Debug\RailwayResevationSystem.Migrations.canceldate.resources
 C:\AgileProject\RailwayReservationSystem\RailwayResevationSystem\obj\Debug\RailwayResevationSystem.Migrations.datetimeerror.resources
 C:\AgileProject\RailwayReservationSystem\RailwayResevationSystem\obj\Debug\RailwayResevationSystem.Migrations.waitlist.resources
+C:\AgileProject\RailwayReservationSystem\RailwayResevationSystem\obj\Debug\RailwayResevationSystem.Migrations.admincol.resources

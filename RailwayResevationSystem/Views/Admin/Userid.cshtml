@@ -1,0 +1,7 @@
+﻿@model RailwayResevationSystem.Models.Admin
+
+@{ ViewBag.Title = "Userid"; }
+
+<h2> Your Userid is <span style="color:forestgreen;">@Session["userecovery"]</span> </h2>
+<input type="button" value="Login" class="btn btn-primary"
+       onclick="location.href='@Url.Action( "Adminlogin", "Admin")';" />

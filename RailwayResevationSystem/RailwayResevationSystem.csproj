@@ -210,6 +210,10 @@
     <Compile Include="Migrations\202103131131449_waitlist.Designer.cs">
       <DependentUpon>202103131131449_waitlist.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103200914287_admincol.cs" />
+    <Compile Include="Migrations\202103200914287_admincol.Designer.cs">
+      <DependentUpon>202103200914287_admincol.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\BookTicket.cs" />
@@ -297,6 +301,12 @@
     <Content Include="Views\User\Cancel.cshtml" />
     <Content Include="Views\Home\Alert.cshtml" />
     <Content Include="Views\User\NoBooking.cshtml" />
+    <Content Include="Views\User\PaymentDetails.cshtml" />
+    <Content Include="Views\Admin\Useridrecovery.cshtml" />
+    <Content Include="Views\Admin\Userid.cshtml" />
+    <Content Include="Views\Admin\Passwordrecovery.cshtml" />
+    <Content Include="Views\Admin\Newpassword.cshtml" />
+    <Content Include="Views\Admin\Passwordsuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -368,6 +378,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103131131449_waitlist.resx">
       <DependentUpon>202103131131449_waitlist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103200914287_admincol.resx">
+      <DependentUpon>202103200914287_admincol.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

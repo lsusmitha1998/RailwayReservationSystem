@@ -54,6 +54,120 @@ namespace RailwayResevationSystem.Controllers
                 return RedirectToAction("Adminlogin", "Admin");
             }
         }
+       public ActionResult Useridrecovery()
+        {
+            Admin admin = new Admin();
+            return View(admin);
+        }
+        [HttpPost]
+        public ActionResult Useridrecovery(Admin admin)
+        {
 
+            var idrecovery = con.Admins.Where(u => u.Petname == admin.Petname && u.PhoneNumber == admin.PhoneNumber && u.Email == admin.Email).FirstOrDefault();
+
+            bool iscorrect = con.Admins.Any(p => p.PhoneNumber == admin.PhoneNumber && p.Email == admin.Email && p.Petname == admin.Petname);
+
+            if (iscorrect)
+            {
+                Session["userecovery"] = idrecovery.UserId;
+                return RedirectToAction("Userid");
+            }
+            else
+            {
+
+                ModelState.AddModelError("", "Enter Correct Details");
+
+            }
+            return View();
+
+        }
+       public ActionResult Userid()
+        {
+            return View();
+        }
+        public ActionResult Passwordrecovery()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Passwordrecovery(Admin admin)
+        {
+            var passrec = con.Admins.Where(p => p.UserId == admin.UserId && p.Petname == admin.Petname).FirstOrDefault();
+            bool ispass = con.Admins.Any(p => p.UserId == admin.UserId && p.Petname == admin.Petname);
+            if (ispass)
+            {
+                Session["passrecovery"] = passrec.UserId;
+                return RedirectToAction("Newpassword");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Please Enter Correct Details");
+            }
+            return View();
+        }
+        public ActionResult Newpassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Newpassword(FormCollection form)
+        {
+            try
+            {
+                string newpass = form["Newpass"].ToString();
+                string conpass = form["Conpass"].ToString();
+                string adid = (string)Session["passrecovery"];
+                if (newpass == conpass)
+                {
+                    var admin = con.Admins.Where(t => t.UserId == adid).FirstOrDefault();
+                    admin.password = newpass;
+                    con.SaveChanges();
+                    return RedirectToAction("Passwordsuccess", "Admin");
+                }
+                else
+                {
+                    //ModelState.AddModelError("", "Newpassword and confirm password does not match");
+                    Response.Write("<center><h2 style=" + "color:red" + ">Newpassword and confirm password does not match</h2></center>");
+                    // return View();
+                }
+
+                return View();
+
+            }
+            catch
+            {
+                Response.Write("<center><h2 style=" + "color:red" + ">Password cannot be empty</h2></center>");
+                return View();
+            }
+           
+        }
+        /*public ActionResult Newpassword(Admin admin)
+        {
+            var passdet = con.Admins.Where(n => n.Newpassword == n.Confirmpassword).FirstOrDefault();
+            bool iscrct = con.Admins.Any(n => n.Newpassword == n.Confirmpassword);
+            if (passdet != null)
+            {
+                var details = con.Admins.FirstOrDefault(c => c.UserId == admin.UserId);
+                if (details != null)
+
+
+                {
+                    admin.password = passdet.Newpassword;
+                    //details.password = admin.Newpassword;
+
+
+                    con.SaveChanges();
+
+                    return RedirectToAction("Passwordsuccess", "Admin");
+                }
+            }
+
+            return View(admin);
+
+        }*/
+        public ActionResult Passwordsuccess()
+        {
+            return View();
+        }
     }
 }

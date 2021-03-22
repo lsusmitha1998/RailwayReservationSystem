@@ -17,5 +17,12 @@ namespace RailwayResevationSystem.Models
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "Enter Password")]
         public string password { get; set; }
+        [Required]
+        public long PhoneNumber { get; set; }
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
+        [Required]
+        public string Petname { get; set; }
     }
 }

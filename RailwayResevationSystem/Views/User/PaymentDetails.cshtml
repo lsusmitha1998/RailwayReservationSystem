@@ -1,0 +1,76 @@
+﻿@model IEnumerable<RailwayResevationSystem.Models.BookTicket>
+
+@{
+    ViewBag.Title = "PaymentDetails";
+}
+
+<h2>Previous Transactions</h2>
+
+
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.TrainId)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoOfTickets)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CardNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CancelledDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.TrainId)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NoOfTickets)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CardNo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.BookedDate)
+    </td>
+    @if (item.CancelledDate==default(DateTime))
+    {
+        <td>
+            not cancelled
+        </td>
+
+    }
+    else
+    {
+        <td>
+            @Html.DisplayFor(modelItem => item.CancelledDate)
+        </td>
+    }
+
+
+</tr>
+}
+
+</table>
+<div>
+    <input type="button" value="Book tickets" class="btn btn-primary"
+           onclick="location.href='@Url.Action( "FindTrain", "TrainUser")';" />
+</div>
